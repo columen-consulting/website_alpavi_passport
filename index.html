@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPAVI GROUP - Digitalizzazione e Sostenibilità</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-black': '#000000',
+                        'brand-gray-text': '#545454',
+                        'brand-blue-dark': '#152737',
+                        'brand-blue-steel': '#34495E',
+                        'brand-white': '#FFFFFF',
+                        'brand-dark-bg': '#222222',
+                        'brand-accent-blue': '#0073B6',
+                    },
+                    fontFamily: {
+                        'open-sans': ['Open Sans', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply font-open-sans text-base leading-[20.8px] text-brand-gray-text;
+            }
+            h1 {
+                @apply font-open-sans text-[32px] leading-[41.6px] font-semibold text-brand-black;
+            }
+            h2 {
+                @apply font-open-sans text-2xl font-semibold text-brand-black;
+            }
+            p {
+                @apply font-open-sans text-base leading-[20.8px] text-brand-gray-text;
+            }
+            .text-highlight {
+                @apply font-montserrat text-[13px] leading-[16.9px];
+            }
+        }
+    </style>
+</head>
+<body class="bg-brand-white">
+    <!-- Navbar -->
+    <nav class="bg-brand-white shadow-sm fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-semibold text-brand-black">
+                    ALPAVI GROUP
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-brand-blue-dark hover:text-brand-accent-blue transition-colors">Chi Siamo</a>
+                    <a href="#servizi" class="text-brand-blue-dark hover:text-brand-accent-blue transition-colors">Servizi</a>
+                    <a href="#vantaggi" class="text-brand-blue-dark hover:text-brand-accent-blue transition-colors">Perché Noi</a>
+                    <a href="#contatti" class="text-brand-blue-dark hover:text-brand-accent-blue transition-colors">Contatti</a>
+                </div>
+                <!-- Mobile menu button -->
+                <button class="md:hidden text-brand-blue-dark">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-16">
+        <!-- Hero Section -->
+        <section class="py-16 lg:py-24">
+            <div class="container mx-auto px-4">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h1 class="mb-6">
+                            Digitalizzazione e Sostenibilità: Pronti per il Futuro con ALPAVI GROUP
+                        </h1>
+                        <p class="mb-6 text-lg">
+                            In un momento in cui l'industria corre verso la digitalizzazione e la sostenibilità, ALPAVI GROUP accompagna i produttori con soluzioni di Digital Twin di ultima generazione e con la consulenza necessaria per arrivare pronti all'obbligo europeo del Digital Product Passport (DPP). Dal 2027, infatti, i passaporti digitali diventeranno la chiave d'accesso al mercato UE per le prime famiglie di prodotti; chi non si adegua rischia rallentamenti doganali, sanzioni e – soprattutto – di essere tagliato fuori dalle catene di fornitura più virtuose.
+                        </p>
+                        <p class="text-highlight text-brand-blue-steel mb-8">
+                            Fonte: worldly.io
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#perche-ora" class="bg-brand-accent-blue text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition-all text-center font-semibold">
+                                Scopri di più
+                            </a>
+                            <a href="#contatti" class="border-2 border-brand-blue-dark text-brand-blue-dark px-8 py-3 rounded-lg hover:bg-brand-blue-dark hover:text-white transition-all text-center font-semibold">
+                                Contattaci Ora
+                            </a>
+                        </div>
+                    </div>
+                    <div class="lg:order-first order-last">
+                        <div class="bg-gray-300 aspect-video w-full rounded-lg"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Perché muoversi adesso Section -->
+        <section id="perche-ora" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-center mb-12">Perché muoversi adesso</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="bg-gray-300 w-12 h-12 rounded-lg mb-4"></div>
+                        <h3 class="font-semibold text-brand-black mb-3">Batterie</h3>
+                        <p class="mb-3">
+                            Sono il primo gruppo in assoluto a dover integrare un DPP obbligatorio dal 2027; riguarda accumulatori per auto elettriche, stoccaggio industriale e dispositivi portatili.
+                        </p>
+                        <p class="text-highlight text-brand-blue-steel">
+                            Fonte: circulareconomy.europa.eu
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="bg-gray-300 w-12 h-12 rounded-lg mb-4"></div>
+                        <h3 class="font-semibold text-brand-black mb-3">Textile & Fashion</h3>
+                        <p class="mb-3">
+                            Textile & Fashion, Pneumatici ed Elettronica di consumo: anch'essi nel "primo scaglione" con scadenza 2027, insieme all'alluminio che anticipa di pochi mesi.
+                        </p>
+                        <p class="text-highlight text-brand-blue-steel">
+                            Fonte: sidley.com
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm md:col-span-2 lg:col-span-1">
+                        <div class="bg-gray-300 w-12 h-12 rounded-lg mb-4"></div>
+                        <h3 class="font-semibold text-brand-black mb-3">Arredo & Altri Prodotti</h3>
+                        <p class="mb-3">
+                            Arredo, materassi, apparecchi professionali e un ampio elenco di prodotti "energy-related" (motori elettrici, frigoriferi, caricabatterie EV, ecc.) entreranno in vigore fra il 2028 e il 2030 secondo il primo Working Plan ESPR.
+                        </p>
+                        <p class="text-highlight text-brand-blue-steel">
+                            Fonte: sidley.com
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-12 bg-brand-blue-dark text-white p-8 rounded-lg">
+                    <p class="text-lg text-center">
+                        Muoversi ora significa giocare d'anticipo: raccogliere dati lungo la supply-chain, progettare gemelli digitali che li "nutrano" in tempo reale e incorporare fin da subito i requisiti di circolarità che la UE renderà progressivamente più stringenti.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cosa facciamo per te Section -->
+        <section id="servizi" class="py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-center mb-12">Cosa facciamo per te</h2>
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <div class="flex gap-6">
+                        <div class="bg-gray-300 w-16 h-16 rounded-lg flex-shrink-0"></div>
+                        <div>
+                            <h3 class="font-semibold text-brand-black mb-3 text-xl">Digital Twins industriali</h3>
+                            <p>
+                                Modelliamo linee produttive, macchinari e processi in un ambiente virtuale che replica fedelmente il comportamento reale. Ottimizziamo OEE, riduciamo fermate non programmate e tagliamo gli sprechi energetici.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="bg-gray-300 w-16 h-16 rounded-lg flex-shrink-0"></div>
+                        <div>
+                            <h3 class="font-semibold text-brand-black mb-3 text-xl">Digital Twins per le rinnovabili</h3>
+                            <p>
+                                I nostri gemelli per parchi fotovoltaici, eolici e sistemi di accumulo prevedono guasti, massimizzano la resa e facilitano la partecipazione ai mercati di capacità.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="bg-gray-300 w-16 h-16 rounded-lg flex-shrink-0"></div>
+                        <div>
+                            <h3 class="font-semibold text-brand-black mb-3 text-xl">Consulenza DPP & ESPR</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <span class="text-brand-accent-blue mr-2">•</span>
+                                    Gap analysis dei dati di prodotto
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-brand-accent-blue mr-2">•</span>
+                                    Integrazione con PLM/ERP e piattaforme IoT
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-brand-accent-blue mr-2">•</span>
+                                    Definizione di data carrier (QR, RFID, NFC) e protocolli di sicurezza
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-brand-accent-blue mr-2">•</span>
+                                    Formazione operativa per R&D, qualità e supply-chain
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="bg-gray-300 w-16 h-16 rounded-lg flex-shrink-0"></div>
+                        <div>
+                            <h3 class="font-semibold text-brand-black mb-3 text-xl">Adeguamento macchinari e retro-fit</h3>
+                            <p>
+                                Portiamo i vostri impianti allo stato dell'arte: sensoristica, connettività, cyber-security industriale e documentazione CE – tutto già "DPP-ready".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- I vantaggi di ALPAVI GROUP Section -->
+        <section id="vantaggi" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-center mb-12">I vantaggi di ALPAVI GROUP</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center bg-white p-8 rounded-lg shadow-sm">
+                        <div class="bg-gray-300 w-16 h-16 rounded-full mx-auto mb-6"></div>
+                        <h3 class="font-semibold text-brand-black mb-4 text-xl">Approccio end-to-end</h3>
+                        <p>Dallo studio di fattibilità alla generazione del QR Code finale.</p>
+                    </div>
+                    <div class="text-center bg-white p-8 rounded-lg shadow-sm">
+                        <div class="bg-gray-300 w-16 h-16 rounded-full mx-auto mb-6"></div>
+                        <h3 class="font-semibold text-brand-black mb-4 text-xl">Know-how multisettoriale</h3>
+                        <p>Esperienza trasversale fra manifattura, energia e ICT, indispensabile per gestire filiere complesse.</p>
+                    </div>
+                    <div class="text-center bg-white p-8 rounded-lg shadow-sm">
+                        <div class="bg-gray-300 w-16 h-16 rounded-full mx-auto mb-6"></div>
+                        <h3 class="font-semibold text-brand-black mb-4 text-xl">Comunicazione "EU-ready"</h3>
+                        <p>Ingegneri e consulenti che parlano la lingua dei regolatori europei e dei tuoi auditor.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- È il momento di agire Section -->
+        <section id="contatti" class="py-16 bg-brand-blue-dark text-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-white mb-8">È il momento di agire</h2>
+                <p class="text-xl mb-8 max-w-3xl mx-auto">
+                    Il 2027 non è lontano. Lascia che ALPAVI GROUP trasformi il tuo prodotto in un campione digitale di trasparenza, efficienza e valore.
+                </p>
+                <div class="mb-8">
+                    <a href="mailto:info@alpavigroup.com" class="bg-brand-accent-blue text-white px-12 py-4 rounded-lg hover:bg-opacity-90 transition-all text-lg font-semibold inline-block">
+                        Contattaci oggi stesso
+                    </a>
+                </div>
+                <p class="text-lg max-w-2xl mx-auto opacity-90">
+                    Insieme costruiremo il gemello digitale e il passaporto che apriranno le porte ai mercati di domani.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark-bg text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <div class="text-2xl font-semibold mb-4">ALPAVI GROUP</div>
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 mb-6">
+                    <a href="#" class="hover:text-brand-accent-blue transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-brand-accent-blue transition-colors">Cookie Policy</a>
+                </div>
+                <p class="text-gray-400 mb-4">
+                    © 2025 ALPAVI GROUP. Tutti i diritti riservati.
+                </p>
+                <p class="text-sm text-gray-500">
+                    Made with ❤️ and TailwindCSS
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Smooth scrolling script -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
