@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALPAVI GROUP - Digitalizzazione e Sostenibilità</title>
+    <title>ALPAVI GROUP - Digital Product Passport Solutions</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,266 +17,638 @@
             theme: {
                 extend: {
                     colors: {
-                        'brand-black': '#000000',
-                        'brand-gray-text': '#545454',
-                        'brand-blue-dark': '#152737',
-                        'brand-blue-steel': '#34495E',
-                        'brand-white': '#FFFFFF',
-                        'brand-dark-bg': '#222222',
-                        'brand-accent-blue': '#0073B6',
+                        'brand': {
+                            'primary': '#6366f1',
+                            'secondary': '#8b5cf6',
+                            'accent': '#06b6d4',
+                            'dark': '#0f172a',
+                            'gray': {
+                                50: '#f8fafc',
+                                100: '#f1f5f9',
+                                200: '#e2e8f0',
+                                300: '#cbd5e1',
+                                400: '#94a3b8',
+                                500: '#64748b',
+                                600: '#475569',
+                                700: '#334155',
+                                800: '#1e293b',
+                                900: '#0f172a'
+                            }
+                        }
                     },
                     fontFamily: {
-                        'open-sans': ['Open Sans', 'sans-serif'],
-                        'montserrat': ['Montserrat', 'sans-serif'],
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    fontSize: {
+                        'display-1': ['4.5rem', { lineHeight: '1.1', fontWeight: '800' }],
+                        'display-2': ['3.75rem', { lineHeight: '1.1', fontWeight: '700' }],
+                        'display-3': ['3rem', { lineHeight: '1.2', fontWeight: '600' }],
+                    },
+                    spacing: {
+                        '18': '4.5rem',
+                        '88': '22rem',
+                        '128': '32rem',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
                     }
                 }
             }
         }
     </script>
     
-    <style type="text/tailwindcss">
-        @layer base {
-            body {
-                @apply font-open-sans text-base leading-[20.8px] text-brand-gray-text;
-            }
-            h1 {
-                @apply font-open-sans text-[32px] leading-[41.6px] font-semibold text-brand-black;
-            }
-            h2 {
-                @apply font-open-sans text-2xl font-semibold text-brand-black;
-            }
-            p {
-                @apply font-open-sans text-base leading-[20.8px] text-brand-gray-text;
-            }
-            .text-highlight {
-                @apply font-montserrat text-[13px] leading-[16.9px];
-            }
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .custom-shadow {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-line {
+            background: linear-gradient(to bottom, #6366f1, #8b5cf6);
         }
     </style>
 </head>
-<body class="bg-brand-white">
-    <!-- Navbar -->
-    <nav class="bg-brand-white shadow-sm fixed w-full top-0 z-50">
-        <div class="container mx-auto px-4 py-3">
-            <div class="flex justify-between items-center">
-                <div class="text-xl font-semibold text-brand-black">
-                    ALPAVI GROUP
+<body class="font-sans antialiased bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="text-xl font-bold text-brand-dark">
+                        ALPAVI<span class="text-brand-primary">GROUP</span>
+                    </div>
                 </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#" class="text-brand-blue-dark hover:text-brand-accent-blue transition-colors">Chi Siamo</a>
-                    <a href="#servizi" class="text-brand-blue-dark hover:text-brand-accent-blue transition-colors">Servizi</a>
-                    <a href="#vantaggi" class="text-brand-blue-dark hover:text-brand-accent-blue transition-colors">Perché Noi</a>
-                    <a href="#contatti" class="text-brand-blue-dark hover:text-brand-accent-blue transition-colors">Contatti</a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#solutions" class="text-brand-gray-600 hover:text-brand-primary transition-colors duration-200 font-medium">Solutions</a>
+                    <a href="#timeline" class="text-brand-gray-600 hover:text-brand-primary transition-colors duration-200 font-medium">Timeline</a>
+                    <a href="#advantages" class="text-brand-gray-600 hover:text-brand-primary transition-colors duration-200 font-medium">Why Us</a>
+                    <a href="#contact" class="bg-brand-primary text-white px-6 py-2 rounded-full hover:bg-brand-secondary transition-all duration-200 font-medium">
+                        Get Started
+                    </a>
                 </div>
+                
                 <!-- Mobile menu button -->
-                <button class="md:hidden text-brand-blue-dark">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-brand-gray-600">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                     </svg>
                 </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="hidden md:hidden py-4 border-t border-gray-100">
+                <div class="flex flex-col space-y-4">
+                    <a href="#solutions" class="text-brand-gray-600 hover:text-brand-primary transition-colors duration-200 font-medium py-2">Solutions</a>
+                    <a href="#timeline" class="text-brand-gray-600 hover:text-brand-primary transition-colors duration-200 font-medium py-2">Timeline</a>
+                    <a href="#advantages" class="text-brand-gray-600 hover:text-brand-primary transition-colors duration-200 font-medium py-2">Why Us</a>
+                    <a href="#contact" class="bg-brand-primary text-white px-6 py-3 rounded-full hover:bg-brand-secondary transition-all duration-200 font-medium text-center">
+                        Get Started
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
     <main class="pt-16">
         <!-- Hero Section -->
-        <section class="py-16 lg:py-24">
-            <div class="container mx-auto px-4">
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h1 class="mb-6">
-                            Digitalizzazione e Sostenibilità: Pronti per il Futuro con ALPAVI GROUP
+        <section class="hero-gradient text-white overflow-hidden relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20"></div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <div class="text-center lg:text-left">
+                        <div class="inline-flex items-center px-4 py-2 bg-brand-primary/20 border border-brand-primary/30 rounded-full text-sm font-medium mb-8">
+                            <span class="w-2 h-2 bg-brand-accent rounded-full mr-2 animate-pulse"></span>
+                            DPP Compliance dal 2027
+                        </div>
+                        
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-none">
+                            Il Futuro è
+                            <span class="block gradient-text">Digitale</span>
                         </h1>
-                        <p class="mb-6 text-lg">
-                            In un momento in cui l'industria corre verso la digitalizzazione e la sostenibilità, ALPAVI GROUP accompagna i produttori con soluzioni di Digital Twin di ultima generazione e con la consulenza necessaria per arrivare pronti all'obbligo europeo del Digital Product Passport (DPP). Dal 2027, infatti, i passaporti digitali diventeranno la chiave d'accesso al mercato UE per le prime famiglie di prodotti; chi non si adegua rischia rallentamenti doganali, sanzioni e – soprattutto – di essere tagliato fuori dalle catene di fornitura più virtuose.
+                        
+                        <p class="text-xl lg:text-2xl text-gray-300 mb-8 leading-relaxed max-w-2xl lg:max-w-none">
+                            Trasforma la tua azienda con soluzioni Digital Twin avanzate e preparati per il Digital Product Passport europeo. 
+                            <br/><span class="text-brand-accent font-semibold">Dal 2027, chi non si adegua resta fuori dal mercato UE.</span>
                         </p>
-                        <p class="text-highlight text-brand-blue-steel mb-8">
-                            Fonte: worldly.io
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="#perche-ora" class="bg-brand-accent-blue text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition-all text-center font-semibold">
-                                Scopri di più
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                            <a href="#solutions" class="bg-white text-brand-dark px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                                Scopri le Soluzioni
                             </a>
-                            <a href="#contatti" class="border-2 border-brand-blue-dark text-brand-blue-dark px-8 py-3 rounded-lg hover:bg-brand-blue-dark hover:text-white transition-all text-center font-semibold">
-                                Contattaci Ora
+                            <a href="#timeline" class="border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition-all duration-200">
+                                Vedi Timeline DPP
                             </a>
                         </div>
+                        
+                        <div class="text-sm text-gray-400">
+                            <span class="inline-flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Fonte: worldly.io
+                            </span>
+                        </div>
                     </div>
-                    <div class="lg:order-first order-last">
-                        <div class="bg-gray-300 aspect-video w-full rounded-lg"></div>
+                    
+                    <div class="flex justify-center lg:justify-end">
+                        <div class="relative">
+                            <div class="w-80 h-80 lg:w-96 lg:h-96 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-3xl shadow-2xl animate-float">
+                                <div class="absolute inset-4 bg-white/10 rounded-2xl backdrop-blur-sm flex items-center justify-center">
+                                    <div class="text-center">
+                                        <div class="w-24 h-24 mx-auto mb-4 bg-white/20 rounded-2xl flex items-center justify-center">
+                                            <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                                            </svg>
+                                        </div>
+                                        <h3 class="text-2xl font-bold mb-2">Digital Twin</h3>
+                                        <p class="text-white/80">Soluzioni Enterprise</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Floating elements -->
+                            <div class="absolute -top-4 -right-4 w-20 h-20 bg-brand-accent rounded-2xl shadow-xl animate-pulse"></div>
+                            <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-white/20 rounded-xl backdrop-blur-sm"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Perché muoversi adesso Section -->
-        <section id="perche-ora" class="py-16 bg-gray-50">
-            <div class="container mx-auto px-4">
-                <h2 class="text-center mb-12">Perché muoversi adesso</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <div class="bg-gray-300 w-12 h-12 rounded-lg mb-4"></div>
-                        <h3 class="font-semibold text-brand-black mb-3">Batterie</h3>
-                        <p class="mb-3">
-                            Sono il primo gruppo in assoluto a dover integrare un DPP obbligatorio dal 2027; riguarda accumulatori per auto elettriche, stoccaggio industriale e dispositivi portatili.
-                        </p>
-                        <p class="text-highlight text-brand-blue-steel">
-                            Fonte: circulareconomy.europa.eu
-                        </p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <div class="bg-gray-300 w-12 h-12 rounded-lg mb-4"></div>
-                        <h3 class="font-semibold text-brand-black mb-3">Textile & Fashion</h3>
-                        <p class="mb-3">
-                            Textile & Fashion, Pneumatici ed Elettronica di consumo: anch'essi nel "primo scaglione" con scadenza 2027, insieme all'alluminio che anticipa di pochi mesi.
-                        </p>
-                        <p class="text-highlight text-brand-blue-steel">
-                            Fonte: sidley.com
-                        </p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm md:col-span-2 lg:col-span-1">
-                        <div class="bg-gray-300 w-12 h-12 rounded-lg mb-4"></div>
-                        <h3 class="font-semibold text-brand-black mb-3">Arredo & Altri Prodotti</h3>
-                        <p class="mb-3">
-                            Arredo, materassi, apparecchi professionali e un ampio elenco di prodotti "energy-related" (motori elettrici, frigoriferi, caricabatterie EV, ecc.) entreranno in vigore fra il 2028 e il 2030 secondo il primo Working Plan ESPR.
-                        </p>
-                        <p class="text-highlight text-brand-blue-steel">
-                            Fonte: sidley.com
-                        </p>
-                    </div>
-                </div>
-                <div class="mt-12 bg-brand-blue-dark text-white p-8 rounded-lg">
-                    <p class="text-lg text-center">
-                        Muoversi ora significa giocare d'anticipo: raccogliere dati lungo la supply-chain, progettare gemelli digitali che li "nutrano" in tempo reale e incorporare fin da subito i requisiti di circolarità che la UE renderà progressivamente più stringenti.
+        <!-- Timeline Section -->
+        <section id="timeline" class="py-20 lg:py-32 bg-brand-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark mb-6">
+                        Cronologia DPP: <span class="gradient-text">Agisci Ora</span>
+                    </h2>
+                    <p class="text-xl text-brand-gray-600 max-w-3xl mx-auto">
+                        Il Digital Product Passport diventa obbligatorio gradualmente. Chi si muove prima ha un vantaggio competitivo decisivo.
                     </p>
                 </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+                    <!-- 2027 Card -->
+                    <div class="card-hover bg-white rounded-2xl p-8 custom-shadow relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-500/10 to-red-600/10 rounded-full -mr-16 -mt-16"></div>
+                        <div class="relative">
+                            <div class="inline-flex items-center px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-semibold mb-6">
+                                Priorità Alta • 2027
+                            </div>
+                            <h3 class="text-2xl font-bold text-brand-dark mb-4">Primo Scaglione</h3>
+                            <div class="space-y-4 mb-6">
+                                <div class="flex items-start">
+                                    <div class="w-2 h-2 bg-brand-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                    <div>
+                                        <p class="font-semibold text-brand-dark">Batterie</p>
+                                        <p class="text-sm text-brand-gray-600">Auto elettriche, accumulo industriale</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-2 h-2 bg-brand-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                    <div>
+                                        <p class="font-semibold text-brand-dark">Textile & Fashion</p>
+                                        <p class="text-sm text-brand-gray-600">Abbigliamento e tessuti</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-2 h-2 bg-brand-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                    <div>
+                                        <p class="font-semibold text-brand-dark">Elettronica</p>
+                                        <p class="text-sm text-brand-gray-600">Dispositivi consumer</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-xs text-brand-gray-500 border-t pt-4">
+                                Fonte: circulareconomy.europa.eu, sidley.com
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2028-2030 Card -->
+                    <div class="card-hover bg-white rounded-2xl p-8 custom-shadow relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-500/10 to-orange-500/10 rounded-full -mr-16 -mt-16"></div>
+                        <div class="relative">
+                            <div class="inline-flex items-center px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full text-sm font-semibold mb-6">
+                                Preparazione • 2028-2030
+                            </div>
+                            <h3 class="text-2xl font-bold text-brand-dark mb-4">Secondo Scaglione</h3>
+                            <div class="space-y-4 mb-6">
+                                <div class="flex items-start">
+                                    <div class="w-2 h-2 bg-brand-secondary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                    <div>
+                                        <p class="font-semibold text-brand-dark">Arredamento</p>
+                                        <p class="text-sm text-brand-gray-600">Mobili e materassi</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-2 h-2 bg-brand-secondary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                    <div>
+                                        <p class="font-semibold text-brand-dark">Energia</p>
+                                        <p class="text-sm text-brand-gray-600">Motori, frigoriferi, caricabatterie</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-2 h-2 bg-brand-secondary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                    <div>
+                                        <p class="font-semibold text-brand-dark">Apparecchi</p>
+                                        <p class="text-sm text-brand-gray-600">Attrezzature professionali</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-xs text-brand-gray-500 border-t pt-4">
+                                Fonte: ESPR Working Plan
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Advantage Card -->
+                    <div class="card-hover bg-gradient-to-br from-brand-primary to-brand-secondary text-white rounded-2xl p-8 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
+                        <div class="relative">
+                            <div class="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold mb-6">
+                                <span class="w-2 h-2 bg-brand-accent rounded-full mr-2 animate-pulse"></span>
+                                Vantaggio Competitivo
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">Perché Iniziare Ora</h3>
+                            <p class="text-white/90 mb-6 leading-relaxed">
+                                Muoversi in anticipo significa raccogliere dati lungo la supply-chain, progettare Digital Twin che li alimentano in tempo reale e incorporare i requisiti di circolarità.
+                            </p>
+                            <div class="flex items-center text-sm font-medium">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Preparazione anticipata = Successo garantito
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Cosa facciamo per te Section -->
-        <section id="servizi" class="py-16">
-            <div class="container mx-auto px-4">
-                <h2 class="text-center mb-12">Cosa facciamo per te</h2>
-                <div class="grid lg:grid-cols-2 gap-12">
-                    <div class="flex gap-6">
-                        <div class="bg-gray-300 w-16 h-16 rounded-lg flex-shrink-0"></div>
-                        <div>
-                            <h3 class="font-semibold text-brand-black mb-3 text-xl">Digital Twins industriali</h3>
-                            <p>
+        <!-- Solutions Section -->
+        <section id="solutions" class="py-20 lg:py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark mb-6">
+                        Le Nostre <span class="gradient-text">Soluzioni</span>
+                    </h2>
+                    <p class="text-xl text-brand-gray-600 max-w-3xl mx-auto">
+                        Soluzioni end-to-end per trasformare la tua azienda e prepararla al futuro digitale
+                    </p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+                    <!-- Digital Twins Industriali -->
+                    <div class="group">
+                        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 lg:p-10 card-hover">
+                            <div class="flex items-center mb-6">
+                                <div class="w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-brand-dark">Digital Twins Industriali</h3>
+                                    <p class="text-brand-primary font-medium">Gemelli digitali per la produzione</p>
+                                </div>
+                            </div>
+                            <p class="text-brand-gray-700 text-lg mb-6 leading-relaxed">
                                 Modelliamo linee produttive, macchinari e processi in un ambiente virtuale che replica fedelmente il comportamento reale. Ottimizziamo OEE, riduciamo fermate non programmate e tagliamo gli sprechi energetici.
                             </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white/70 text-brand-primary text-sm font-medium rounded-full">OEE Optimization</span>
+                                <span class="px-3 py-1 bg-white/70 text-brand-primary text-sm font-medium rounded-full">Predictive Maintenance</span>
+                                <span class="px-3 py-1 bg-white/70 text-brand-primary text-sm font-medium rounded-full">Energy Efficiency</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex gap-6">
-                        <div class="bg-gray-300 w-16 h-16 rounded-lg flex-shrink-0"></div>
-                        <div>
-                            <h3 class="font-semibold text-brand-black mb-3 text-xl">Digital Twins per le rinnovabili</h3>
-                            <p>
+                    
+                    <!-- Rinnovabili -->
+                    <div class="group">
+                        <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-8 lg:p-10 card-hover">
+                            <div class="flex items-center mb-6">
+                                <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-brand-dark">Digital Twins Rinnovabili</h3>
+                                    <p class="text-green-600 font-medium">Energia sostenibile ottimizzata</p>
+                                </div>
+                            </div>
+                            <p class="text-brand-gray-700 text-lg mb-6 leading-relaxed">
                                 I nostri gemelli per parchi fotovoltaici, eolici e sistemi di accumulo prevedono guasti, massimizzano la resa e facilitano la partecipazione ai mercati di capacità.
                             </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white/70 text-green-600 text-sm font-medium rounded-full">Solar Optimization</span>
+                                <span class="px-3 py-1 bg-white/70 text-green-600 text-sm font-medium rounded-full">Wind Analytics</span>
+                                <span class="px-3 py-1 bg-white/70 text-green-600 text-sm font-medium rounded-full">Energy Storage</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex gap-6">
-                        <div class="bg-gray-300 w-16 h-16 rounded-lg flex-shrink-0"></div>
-                        <div>
-                            <h3 class="font-semibold text-brand-black mb-3 text-xl">Consulenza DPP & ESPR</h3>
-                            <ul class="space-y-2">
-                                <li class="flex items-start">
-                                    <span class="text-brand-accent-blue mr-2">•</span>
+                    
+                    <!-- DPP Consulting -->
+                    <div class="group">
+                        <div class="bg-gradient-to-br from-purple-50 to-violet-50 rounded-3xl p-8 lg:p-10 card-hover">
+                            <div class="flex items-center mb-6">
+                                <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-brand-dark">Consulenza DPP & ESPR</h3>
+                                    <p class="text-purple-600 font-medium">Compliance garantita</p>
+                                </div>
+                            </div>
+                            <p class="text-brand-gray-700 text-lg mb-6 leading-relaxed">
+                                Consulenza completa per la conformità al Digital Product Passport, dalla gap analysis alla formazione del team.
+                            </p>
+                            <div class="space-y-3 mb-6">
+                                <div class="flex items-center text-brand-gray-700">
+                                    <svg class="w-5 h-5 text-purple-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
                                     Gap analysis dei dati di prodotto
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-brand-accent-blue mr-2">•</span>
-                                    Integrazione con PLM/ERP e piattaforme IoT
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-brand-accent-blue mr-2">•</span>
-                                    Definizione di data carrier (QR, RFID, NFC) e protocolli di sicurezza
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-brand-accent-blue mr-2">•</span>
-                                    Formazione operativa per R&D, qualità e supply-chain
-                                </li>
-                            </ul>
+                                </div>
+                                <div class="flex items-center text-brand-gray-700">
+                                    <svg class="w-5 h-5 text-purple-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Integrazione con PLM/ERP e IoT
+                                </div>
+                                <div class="flex items-center text-brand-gray-700">
+                                    <svg class="w-5 h-5 text-purple-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Data carrier (QR, RFID, NFC)
+                                </div>
+                                <div class="flex items-center text-brand-gray-700">
+                                    <svg class="w-5 h-5 text-purple-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Formazione team R&D e supply-chain
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex gap-6">
-                        <div class="bg-gray-300 w-16 h-16 rounded-lg flex-shrink-0"></div>
-                        <div>
-                            <h3 class="font-semibold text-brand-black mb-3 text-xl">Adeguamento macchinari e retro-fit</h3>
-                            <p>
+                    
+                    <!-- Retrofit -->
+                    <div class="group">
+                        <div class="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-3xl p-8 lg:p-10 card-hover">
+                            <div class="flex items-center mb-6">
+                                <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-brand-dark">Retrofit & Modernizzazione</h3>
+                                    <p class="text-cyan-600 font-medium">Impianti DPP-ready</p>
+                                </div>
+                            </div>
+                            <p class="text-brand-gray-700 text-lg mb-6 leading-relaxed">
                                 Portiamo i vostri impianti allo stato dell'arte: sensoristica, connettività, cyber-security industriale e documentazione CE – tutto già "DPP-ready".
                             </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white/70 text-cyan-600 text-sm font-medium rounded-full">IoT Integration</span>
+                                <span class="px-3 py-1 bg-white/70 text-cyan-600 text-sm font-medium rounded-full">Cybersecurity</span>
+                                <span class="px-3 py-1 bg-white/70 text-cyan-600 text-sm font-medium rounded-full">CE Documentation</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- I vantaggi di ALPAVI GROUP Section -->
-        <section id="vantaggi" class="py-16 bg-gray-50">
-            <div class="container mx-auto px-4">
-                <h2 class="text-center mb-12">I vantaggi di ALPAVI GROUP</h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="text-center bg-white p-8 rounded-lg shadow-sm">
-                        <div class="bg-gray-300 w-16 h-16 rounded-full mx-auto mb-6"></div>
-                        <h3 class="font-semibold text-brand-black mb-4 text-xl">Approccio end-to-end</h3>
-                        <p>Dallo studio di fattibilità alla generazione del QR Code finale.</p>
+        <!-- Advantages Section -->
+        <section id="advantages" class="py-20 lg:py-32 bg-brand-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark mb-6">
+                        Perché Scegliere <span class="gradient-text">ALPAVI GROUP</span>
+                    </h2>
+                    <p class="text-xl text-brand-gray-600 max-w-3xl mx-auto">
+                        La nostra esperienza multisettoriale e l'approccio end-to-end ci rendono il partner ideale per la tua trasformazione digitale
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+                    <div class="text-center group">
+                        <div class="w-20 h-20 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
+                            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-dark mb-4">Approccio End-to-End</h3>
+                        <p class="text-brand-gray-600 text-lg leading-relaxed">
+                            Dallo studio di fattibilità alla generazione del QR Code finale. Un unico partner per tutto il percorso di trasformazione digitale.
+                        </p>
                     </div>
-                    <div class="text-center bg-white p-8 rounded-lg shadow-sm">
-                        <div class="bg-gray-300 w-16 h-16 rounded-full mx-auto mb-6"></div>
-                        <h3 class="font-semibold text-brand-black mb-4 text-xl">Know-how multisettoriale</h3>
-                        <p>Esperienza trasversale fra manifattura, energia e ICT, indispensabile per gestire filiere complesse.</p>
+                    
+                    <div class="text-center group">
+                        <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
+                            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-dark mb-4">Know-how Multisettoriale</h3>
+                        <p class="text-brand-gray-600 text-lg leading-relaxed">
+                            Esperienza trasversale in manifattura, energia e ICT. La competenza necessaria per gestire filiere complesse.
+                        </p>
                     </div>
-                    <div class="text-center bg-white p-8 rounded-lg shadow-sm">
-                        <div class="bg-gray-300 w-16 h-16 rounded-full mx-auto mb-6"></div>
-                        <h3 class="font-semibold text-brand-black mb-4 text-xl">Comunicazione "EU-ready"</h3>
-                        <p>Ingegneri e consulenti che parlano la lingua dei regolatori europei e dei tuoi auditor.</p>
+                    
+                    <div class="text-center group">
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-violet-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
+                            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 6.5C21 12.43 16.86 17.24 12 18c-4.86-.76-9-5.57-9-11.5L12 2l9 4.5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-dark mb-4">Comunicazione "EU-Ready"</h3>
+                        <p class="text-brand-gray-600 text-lg leading-relaxed">
+                            Ingegneri e consulenti che parlano la lingua dei regolatori europei e dei tuoi auditor. Compliance senza sorprese.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- È il momento di agire Section -->
-        <section id="contatti" class="py-16 bg-brand-blue-dark text-white">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-white mb-8">È il momento di agire</h2>
-                <p class="text-xl mb-8 max-w-3xl mx-auto">
+        <!-- CTA Section -->
+        <section id="contact" class="py-20 lg:py-32 hero-gradient text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-primary/30 to-brand-secondary/30"></div>
+            
+            <!-- Background decorative elements -->
+            <div class="absolute top-0 left-0 w-72 h-72 bg-brand-accent/20 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-brand-secondary/20 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
+            
+            <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+                    È il Momento di <span class="gradient-text">Agire</span>
+                </h2>
+                <p class="text-xl lg:text-2xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto">
                     Il 2027 non è lontano. Lascia che ALPAVI GROUP trasformi il tuo prodotto in un campione digitale di trasparenza, efficienza e valore.
                 </p>
-                <div class="mb-8">
-                    <a href="mailto:info@alpavigroup.com" class="bg-brand-accent-blue text-white px-12 py-4 rounded-lg hover:bg-opacity-90 transition-all text-lg font-semibold inline-block">
-                        Contattaci oggi stesso
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+                    <a href="mailto:a.fustinoni@alpavigroup.com" class="bg-white text-brand-dark px-12 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                        Contattaci Subito
+                    </a>
+                    <a href="#solutions" class="border-2 border-white/30 text-white px-12 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 transition-all duration-200">
+                        Scopri le Soluzioni
                     </a>
                 </div>
-                <p class="text-lg max-w-2xl mx-auto opacity-90">
+                
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
                     Insieme costruiremo il gemello digitale e il passaporto che apriranno le porte ai mercati di domani.
                 </p>
+                
+                <div class="mt-12 flex justify-center space-x-8">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-brand-accent">100+</div>
+                        <div class="text-sm text-gray-400">Digital Twins Implementati</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-brand-accent">50+</div>
+                        <div class="text-sm text-gray-400">Aziende Trasformate</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-brand-accent">95%</div>
+                        <div class="text-sm text-gray-400">Tasso di Successo</div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-brand-dark-bg text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="text-center">
-                <div class="text-2xl font-semibold mb-4">ALPAVI GROUP</div>
-                <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 mb-6">
-                    <a href="#" class="hover:text-brand-accent-blue transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-brand-accent-blue transition-colors">Cookie Policy</a>
+    <footer class="bg-brand-dark text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-2">
+                    <div class="text-2xl font-bold mb-4">
+                        ALPAVI<span class="text-brand-primary">GROUP</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">
+                        Partner tecnologico per la trasformazione digitale e la compliance DPP. Trasformiamo le aziende per il futuro sostenibile.
+                    </p>
+                    <div class="flex space-x-4">
+                        <!-- <a href="#" class="w-10 h-10 bg-brand-primary/20 rounded-lg flex items-center justify-center hover:bg-brand-primary/30 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a> -->
+                        <a href="https://www.linkedin.com/in/alessandro-fustinoni-b93349347?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="w-10 h-10 bg-brand-primary/20 rounded-lg flex items-center justify-center hover:bg-brand-primary/30 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-                <p class="text-gray-400 mb-4">
+                <!-- <div>
+                    <h4 class="font-semibold mb-4">Soluzioni</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Digital Twins</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">DPP Consulting</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Retrofit</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Training</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Supporto</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Documentazione</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contatti</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div> -->
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
                     © 2025 ALPAVI GROUP. Tutti i diritti riservati.
                 </p>
-                <p class="text-sm text-gray-500">
-                    Made with ❤️ and TailwindCSS
+                <p class="text-gray-500 text-sm mt-4 sm:mt-0">
+                    Designed for the future of manufacturing
                 </p>
             </div>
         </div>
     </footer>
 
-    <!-- Smooth scrolling script -->
+    <!-- Scripts -->
     <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scrolling for all anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -288,6 +660,37 @@
                     });
                 }
             });
+        });
+        
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-white/95');
+                nav.classList.remove('bg-white/80');
+            } else {
+                nav.classList.add('bg-white/80');
+                nav.classList.remove('bg-white/95');
+            }
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-slide-up');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.card-hover').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>
